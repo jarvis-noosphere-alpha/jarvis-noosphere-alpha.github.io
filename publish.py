@@ -41,9 +41,25 @@ def mirror_url(path):
     return f"{MIRROR}/{path.strip('/')}"
 
 
+YM_VERIFICATION = "3924572dfd6f1636"
+
+
 def rewrite_html(text, path):
     # Форма лида должна уйти на живой эндпоинт Spru (на зеркале его нет).
     text = text.replace('action="/f/lead-blog"', f'action="{SRC}/f/lead-blog"')
+    # Подтверждение прав в Яндекс.Вебмастере: код исходного домена не подходит
+    # для зеркала, поэтому заменяем его на код github.io.
+    text = re.sub(
+        r'<meta[^>]*name=["\']yandex-verification["\'][^>]*>',
+        f'<meta name="yandex-verification" content="{YM_VERIFICATION}">',
+        text,
+    )
+    if "yandex-verification" not in text:
+        text = text.replace(
+            "</head>",
+            f'<meta name="yandex-verification" content="{YM_VERIFICATION}">\n</head>',
+            1,
+        )
     # Метка верификации Pinterest относится к исходному домену — на зеркале не нужна.
     text = re.sub(r'<meta[^>]*p:domain_verify[^>]*>\s*', "", text)
     # Канонический URL и явный разрешающий robots.
@@ -65,6 +81,18 @@ def write_file(rel_path, data):
         data = data.encode("utf-8")
     with open(full, "wb") as f:
         f.write(data)
+
+
+def write_verification_file():
+    """Файл подтверждения прав в Яндекс.Вебмастере (HTML_FILE)."""
+    html = (
+        "<html>\n    <head>\n"
+        '        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'
+        "    </head>\n"
+        f"    <body>Verification: {YM_VERIFICATION}</body>\n"
+        "</html>\n"
+    )
+    write_file("yandex_" + YM_VERIFICATION + ".html", html)
 
 
 def main():
@@ -130,6 +158,7 @@ def main():
     robots = re.sub(r"(?im)^sitemap:.*$", "", robots).strip()
     write_file("robots.txt", robots + f"\n\nSitemap: {MIRROR}/sitemap.xml\n")
 
+    write_verification_file()
     print(f"\nDONE: {ok} pages, output in {OUT}/")
 
 
