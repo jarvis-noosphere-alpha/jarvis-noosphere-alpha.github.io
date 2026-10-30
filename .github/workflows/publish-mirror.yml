@@ -24,12 +24,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -e
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout --orphan gh-pages
           git rm -rf --cached . >/dev/null 2>&1 || true
           rm -rf .github publish.py README.md
-          cp -r _site/* .
+          cp -a _site/. .
+          rm -rf _site
           touch .nojekyll
           git add -A
           git commit -m "Mirror of salon-ai-blog.spru.site"
