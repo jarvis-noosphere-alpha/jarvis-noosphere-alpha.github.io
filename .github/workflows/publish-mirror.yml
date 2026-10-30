@@ -33,6 +33,17 @@ jobs:
           cp -a _site/. .
           rm -rf _site
           touch .nojekyll
+          if [ -f index.html ]; then
+            sed -i 's|<meta name="yandex-verification" content="[0-9a-f]*">|<meta name="yandex-verification" content="3924572dfd6f1636">|' index.html
+          fi
+          cat > yandex_3924572dfd6f1636.html <<'HTML'
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>Verification: 3924572dfd6f1636</body>
+</html>
+HTML
           git add -A
           git commit -m "Mirror of salon-ai-blog.spru.site"
           git push --force https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
