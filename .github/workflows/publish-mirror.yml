@@ -6,6 +6,10 @@ on:
     paths:
       - publish.py
       - .github/workflows/publish-mirror.yml
+  # Расписание: зеркало не должно отставать от живого сайта.
+  # 03:00 UTC = 06:00 МСК.
+  schedule:
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 permissions:

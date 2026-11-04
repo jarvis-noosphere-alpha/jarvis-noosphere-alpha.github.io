@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Собираер индексируемое зеркало салон-блога на GitHub Pages.
+"""Собирает индексируемое зеркало салон-блога на GitHub Pages.
 
 Источник: https://salon-ai-blog.spru.site (там платформа Spru ставит
 X-Robots-Tag: noindex, поэтому поисковики страницы не берут).
-Зеркало живёт на github.io, где заголовка noindex нет.
+Зеркало живёт на github.io, где такого заголовка нет.
 """
 import os
 import re
@@ -24,7 +24,7 @@ EXTRA_ASSETS = [
     "/robots.txt",
     "/checklist-utechek-zapisi.pdf",
     "/wb-5-oshibok-kartochki.pdf",
-    "/yunit-ekonomida-salona.pdf",
+    "/yunit-ekonomika-salona.pdf",
 ]
 
 
@@ -90,6 +90,7 @@ def write_verification_file():
         '        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'
         "    </head>\n"
         f"    <body>Verification: {YM_VERIFICATION}</body>\n"
+        "    </body>\n"
         "</html>\n"
     )
     write_file("yandex_" + YM_VERIFICATION + ".html", html)
@@ -140,26 +141,20 @@ def main():
         except Exception as e:
             print(f"SKIP asset {a}: {e}", file=sys.stderr)
             continue
-        write_file(a.strip("/"), body)
+        write_file(a.lstrip("/"), body)
         print(f"OK asset {a}")
 
-    # 2) sitemap зеркала
-    urlset = ['<?xml version="1.0" encoding="UTF-8"?>',
-              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    # Sitemap указывает на зеркало, а не на исходный noindex-домен.
+    sm_out = ["<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+              "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"]
     for p in ordered:
-        if p.endswith(".pdf"):
-            continue
-        urlset.append(f"  <url><loc>{mirror_url(p)}</loc></url>")
-    urlset.append("</urlset>")
-    write_file("sitemap.xml", "\n".join(urlset) + "\n")
-
-    # 3) robots.txt на зеркало
-    robots = fetch("/robots.txt").decode("utf-8", "replace")
-    robots = re.sub(r"(?im)^sitemap:.*$", "", robots).strip()
-    write_file("robots.txt", robots + f"\n\nSitemap: {MIRROR}/sitemap.xml\n")
+        loc = mirror_url(p if p.endswith("/") or "." in p.split("/")[-1] else p + "/")
+        sm_out.append(f"  <url><loc>{loc}</loc></url>")
+    sm_out.append("</urlset>")
+    write_file("sitemap.xml", "\n".join(sm_out) + "\n")
 
     write_verification_file()
-    print(f"\nDONE: {ok} pages, output in {OUT}/")
+    print(f"DONE: {ok} pages, output in {OUT}/")
 
 
 if __name__ == "__main__":
