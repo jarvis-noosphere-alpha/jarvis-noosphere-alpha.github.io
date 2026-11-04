@@ -41,6 +41,7 @@ def mirror_url(path):
     return f"{MIRROR}/{path.strip('/')}"
 
 
+# Обновление зеркала: 2026-11-04 — добавлена schema.org-разметка на 22 страницах.
 YM_VERIFICATION = "3924572dfd6f1636"
 
 
