@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Ночная переписка в мессенджере: клиент записался на стрижку и отменил запись поздно вечером">
+  <rect width="1200" height="675" fill="#EFE8DA"/>
+  <rect x="0" y="0" width="1200" height="675" fill="url(#grain)"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16303A"/>
+      <stop offset="1" stop-color="#0E2129"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <!-- window with night sky -->
+  <rect x="60" y="60" width="1080" height="555" rx="6" fill="url(#sky)"/>
+  <circle cx="960" cy="175" r="46" fill="#F2E8D2" opacity="0.92"/>
+  <circle cx="942" cy="160" r="46" fill="#16303A" opacity="0.85"/>
+  <g fill="#F2E8D2" opacity="0.7">
+    <circle cx="180" cy="140" r="3"/><circle cx="240" cy="90" r="2"/><circle cx="330" cy="180" r="2.5"/>
+    <circle cx="470" cy="120" r="2"/><circle cx="700" cy="165" r="3"/><circle cx="820" cy="105" r="2"/>
+  </g>
+
+  <!-- counter -->
+  <rect x="60" y="440" width="1080" height="175" fill="#14343B"/>
+  <rect x="60" y="432" width="1080" height="14" fill="#1F6B5A"/>
+
+  <!-- mirror / chair silhouette -->
+  <rect x="140" y="250" width="180" height="180" rx="90" fill="#0B1A20" opacity="0.85"/>
+  <rect x="200" y="300" width="60" height="60" rx="30" fill="#16303A"/>
+
+  <!-- phone on the counter -->
+  <g transform="translate(700 300) rotate(-8)">
+    <rect x="0" y="0" width="230" height="330" rx="26" fill="#0B1A20"/>
+    <rect x="12" y="14" width="206" height="302" rx="18" fill="#F4EEE1"/>
+    <rect x="34" y="44" width="120" height="16" rx="8" fill="#D8CFBB"/>
+    <rect x="34" y="74" width="160" height="12" rx="6" fill="#E3DACA"/>
+    <rect x="34" y="96" width="140" height="12" rx="6" fill="#E3DACA"/>
+    <!-- incoming bubble -->
+    <rect x="34" y="132" width="164" height="44" rx="12" fill="#1F6B5A"/>
+    <rect x="48" y="148" width="120" height="8" rx="4" fill="#D6EFE7"/>
+    <rect x="48" y="162" width="88" height="8" rx="4" fill="#D6EFE7"/>
+    <!-- outgoing bubble -->
+    <rect x="74" y="188" width="124" height="34" rx="12" fill="#E3DACA"/>
+    <rect x="90" y="202" width="92" height="8" rx="4" fill="#B9AE97"/>
+    <!-- late cancellation bubble -->
+    <rect x="34" y="234" width="164" height="44" rx="12" fill="#B4623C"/>
+    <rect x="48" y="250" width="130" height="8" rx="4" fill="#F3DCD1"/>
+    <rect x="48" y="264" width="76" height="8" rx="4" fill="#F3DCD1"/>
+  </g>
+
+  <!-- clock on the wall -->
+  <g transform="translate(520 250)">
+    <circle r="52" fill="#EFE8DA"/>
+    <circle r="52" fill="none" stroke="#1F6B5A" stroke-width="5"/>
+    <line x1="0" y1="0" x2="0" y2="-32" stroke="#16303A" stroke-width="4"/>
+    <line x1="0" y1="0" x2="22" y2="14" stroke="#16303A" stroke-width="4"/>
+    <circle r="4" fill="#B4623C"/>
+    <text x="0" y="78" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#EFE8DA">22:40</text>
+  </g>
+
+  <!-- empty chair -->
+  <g transform="translate(180 460)" fill="#0B1A20" opacity="0.9">
+    <rect x="0" y="0" width="150" height="26" rx="12"/>
+    <rect x="18" y="-90" width="114" height="96" rx="14"/>
+    <rect x="60" y="26" width="14" height="90"/>
+    <rect x="20" y="112" width="110" height="12" rx="6"/>
+  </g>
+
+  <!-- plant -->
+  <g transform="translate(980 400)">
+    <path d="M40 120 C10 70 30 20 70 30 C110 40 110 90 80 110 Z" fill="#1F6B5A"/>
+    <path d="M80 118 C70 60 100 20 130 40 C150 60 130 100 100 116 Z" fill="#2C8471"/>
+    <rect x="46" y="112" width="76" height="62" rx="6" fill="#B4623C"/>
+  </g>
+</svg>
