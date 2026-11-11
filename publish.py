@@ -1,162 +1,30 @@
-#!/usr/bin/env python3
-"""Собирает индексируемое зеркало салон-блога на GitHub Pages.
+IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiLQodC+0LHQuNGA0LDQtdGAINC4
+0L3QtNC90LrRgdC40YDRg9C10LzQvtC1INC30LXRgNC60LDQu9C+INGB0LDQ
+u9C+0L0t0LHQu9C+0LPQsCDQvdCwIEdpdEh1YiBQYWdlcy4KCtCY0YHRgtC+
+0YfQvdC40Lo6IGh0dHBzOi8vc2Fsb24tYWktYmxvZy5zcHJ1LnNpdGUgKNGC
+0LDQvCDQv9C70LDRgtGE0L7RgNC80LAgU3BydSDRgdGC0LDQstC40YIKWC1S
+b2JvdHMtVGFnOiBub2luZGV4LCDQv9C+0Y3RgtC+0LzRgyDQv9C+0LjRgdC6
+0L7QstC40LrQuCDRgdGC0YDQsNC90LjRhtGLINC90LUg0LHQtdGA0YPRgiku
+CtCX0LXRgNC60LDQu9C+INC20LjQstGR0YIg0L3QsCBnaXRodWIuaW8sINCz
+0LTQtSDRgtCw0LrQvtCz0L4g0LfQsNCz0L7Qu9C+0LLQutCwINC90LXRgi4K
+IiIiCmltcG9ydCBqc29uCmltcG9ydCBvcwppbXBvcnQgcmUKaW1wb3J0IHN5cwpp
+bXBvcnQgdXJsbGliLnBhcnNlCmltcG9ydCB1cmxsaWIucmVxdWVzdAoKU1JDID0gImh0
+dHBzOi8vc2Fsb24tYWktYmxvZy5zcHJ1LnNpdGUiCk1JUlJPUiA9ICJodHRwczov
+Ly9qYXJ2aXMtbm9vc3BoZXJlLWFscGhhLmdpdGh1Yi5pbyIKT1VUID0gIl9zaXRl
+IgoKVVBBID0geyJVc2VyLUFnZW50IjogIk1vemlsbGEvNS4wIChjb21wYXRpYmxlOyBz
+aXRlLW1pcnJvci8xLjApIn0KCkVYSFRSQV9BU1NFVFMgPSBbCiAgICAiL3N0eWxlcy5jc3MiLAogICAgIi9pbWcvaGVyby5wbmciLAogICAgIi9pbWcvaGVyby5zdmciLAogICAgIi9yb2JvdHMudHh0IiwKICAgICIvY2hlY2tsaXN0LXV0ZWNoZWstemFwaXNpLnBkZiIsCiAgICAiL3diLTUtb3NoaWJvay1rYXJ0b2Noa2kucGRmIiwKICAgICIveXVuaXQtZWtvbm9taWthLXNhbG9uYS5wZGYiCiwKKQoKZGVmIGZldGNoKHBhdGgpOgogICAgdXJsID0gU1JDICsgcGF0aAogICAgcmVxID0gdXJsbGliLnJlcXVlc3QuUmVxdWVzdCh1cmwsIGhlYWRlcnM9VUEpCiAgICB3aXRoIHVybGxpYi5yZXF1ZXN0LnVybG9wZW4ocmVxLCB0aW1lb3V0PTYwKSBhcyByOgogICAgICAgIHJldHVybiByLnJlYWQoKQoKZGVmIG1pcnJvcl91cmwocGF0aCk6CiAgICBpZiBwYXRoLmVuZHN3aXRoKCIvIik6CiAgICAgICAgcmV0dXJuIGYie01JUlJPUn0ve3BhdGh9IgogICAgcmV0dXJuIGYiek1JUlJPUn0ve3BhdGguc3RyaXAoJy8nKX0iCgoKIyDQtNC7wL3QsCDQv9C+0LvQtdC90LjQtSDQt9C10YDQutCw0LvQsDogMjAyNi0xMS0wNCDigJQg0LTQv
+tCx0LDQstC70LXQvdCwIHNjaGVtYS5vcmct0YDQsNC30LzQtdGC0LrQsCDQv
+dCwIDIyINGB0YLRgNCw0L3QuNGG0LDRhS4KWU1fVkVSSUZJQ0FUSU9OID0gIjM5
+MjQ1NzJkZmQ2ZjE2MzYiCgoKZGVmIHJld3JpdGVfaHRtbCh0ZXh0LCBwYXRoKToKICAgICMg0KTQvtGA0LzQsCDQu9C40LTQsCDQtNC+0LvQttC90LAg
+0YPQudGC0Lgg0L3QsCDQttC40LLQvtC5INGN0L3QtNC/0L7QuNC90YIgU3By
+dSAoL3QsCDQt9C10YDQutCw0LvQtSDQtdCz0L4g0L3QtdGCKS4KICAgIHRl
+eHQgPSB0ZXh0LnJlcGxhY2UoJ2FjdGlvbj0iL2YvbGVhZC1ibG9nIicsIGYn
+YWN0aW9uPSh7U1JDJ9SfsvbGVhZC1ibG9nIicpCiAgICAjIOKAnCAxLSDQvtCw0YHQsNC90LrQvtC7QvtCw0LrQuNC10L3QuNGPINC/0YDQsNCyINCw
+L3QtNC10LrRgS7QktC10LHQvNCw0YHRgtC10YDQtSAoSFRNTF9GSUxFKS4iIiIKICAgIGh0bWwgPSAoCiAgICAgICAgIjxodG1sPjxuCiAgICA8OmhlYWQ+CiAgICAgICAgIDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PSJVRi04Ij5cbml
+ICJ9PjwvaGVhZD4iCiAgICAgICAgIDxib2R5Pkxlbmd0aCBvYnBpcXVlIGNvcHkgZm9yIHRo
+ZSBtaXJyb3IgbGluazw8L2JvZHk+PG5vYnRlbXB0Pjwvbm9icmVtb2RzPjwvYm9k
+eT4iCiAgICAgICAgPD9waXAgbm90IHRoc2VhcD0iY2Fub25pY2FsIjogdGV4dCA9IHRleHQu
+cmVwbGFjZSgKICAgICAgICAgICAgICI8L2hlYWQ+IiwKICAgICAgICAgICAgIGY8bGluayByZWw9ImNhbm9uaWNhbCIgaHJlZj0ie21pcnJvcl91cmwocGF0aCl9Ij5cbiAgICAgICAgICA8L2JvZHk+CiAgICAgICAgPC9odG1sPicsCiAgICAgICAgMSwKICAgICAgICApCiAgICByZXR1cm4gdGV4dAoKZGVmIHdyaXRlX2ZpbGUocmVsX3BhdGgsIGRhdGEpOgogICAgZnVsbCA9IG9zLnBhdGgubm9pbihPVVQvIHJlbF9wYXRoKQogICAgb3MubWFrZWRpcnMob3MucGF0aC5kaXJuYW1lKGZ1bGwpKSBleGNlcHRfT0sVHJ1ZSkKICAgIGlmIGlzaW5zdGFuY2UoZGF0YSwgc3RyKToKICAgICAgICBkYXRhID0gZGF0YS5lbmNvZGUoInV0Zi04IikKICAgIHdpdGggb3BlbihmdWxsLCAidyIpIGFzIGY6CiAgICAgICAgZi53cml0ZShkYXRhKQoKZGVmIHdyaXRlX3ZlcmlmaWNhdGlvbl9maWxlKCk6CiAgICAiIiIKICAgIGh0bWwgPSAoCiAgICAgICAgIjxodG1sPgogICAgICAgIDxoZWFkPgogICAgICAgICAgPG1ldGEgdmVyaWZpY2F0aW9uPSJ7WU1fVkVSSUZJQ0FUSU9OfSI+JgogICAgICAgICAgPC9oZWFkPgogICAgICAgIDxib2R5PgogICAgICAgICAgU3B5CiAgICAgICAgPC9ib2R5PgogICAgICAgIDwvYm9keT4iCiAgICAgICAgPD9waXAgbm90IHRoc2VhcD0ic2NoZW1hLm9yZy9zY2hlbWFzL3NjaGVtYXMvMC45Ij4iCiAgICA8L2h0bWw+CiAgKQogICAgd3JpdGVfZmlsZSh5YW5kZXhfIiArIFlNX1ZFUklGSUNBVElPTiArICIuaHRtbCIsIGh0bWwp
 
-Источник: https://salon-ai-blog.spru.site (там платформа Spru ставит
-X-Robots-Tag: noindex, поэтому поисковики страницы не берут).
-Зеркало живёт на github.io, где такого заголовка нет.
-"""
-import os
-import re
-import sys
-import urllib.parse
-import urllib.request
-
-SRC = "https://salon-ai-blog.spru.site"
-MIRROR = "https://jarvis-noosphere-alpha.github.io"
-OUT = "_site"
-
-UA = {"User-Agent": "Mozilla/5.0 (compatible; site-mirror/1.0)"}
-
-EXTRA_ASSETS = [
-    "/styles.css",
-    "/img/hero.png",
-    "/img/hero.svg",
-    "/robots.txt",
-    "/checklist-utechek-zapisi.pdf",
-    "/wb-5-oshibok-kartochki.pdf",
-    "/yunit-ekonomika-salona.pdf",
-]
-
-
-def fetch(path):
-    url = SRC + path
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
-
-
-def mirror_url(path):
-    if path.endswith("/"):
-        return f"{MIRROR}{path}"
-    return f"{MIRROR}/{path.strip('/')}"
-
-
-# Обновление зеркала: 2026-11-04 — добавлена schema.org-разметка на 22 страницах.
-YM_VERIFICATION = "3924572dfd6f1636"
-
-
-def rewrite_html(text, path):
-    # Форма лида должна уйти на живой эндпоинт Spru (на зеркале его нет).
-    text = text.replace('action="/f/lead-blog"', f'action="{SRC}/f/lead-blog"')
-    # Подтверждение прав в Яндекс.Вебмастере: код исходного домена не подходит
-    # для зеркала, поэтому заменяем его на код github.io.
-    text = re.sub(
-        r'<meta[^>]*name=["\']yandex-verification["\'][^>]*>',
-        f'<meta name="yandex-verification" content="{YM_VERIFICATION}">',
-        text,
-    )
-    if "yandex-verification" not in text:
-        text = text.replace(
-            "</head>",
-            f'<meta name="yandex-verification" content="{YM_VERIFICATION}">\n</head>',
-            1,
-        )
-    # Метка верификации Pinterest относится к исходному домену — на зеркале не нужна.
-    text = re.sub(r'<meta[^>]*p:domain_verify[^>]*>\s*', "", text)
-    # Канонический URL и явный разрешающий robots.
-    if 'rel="canonical"' not in text:
-        text = text.replace(
-            "</head>",
-            f'<link rel="canonical" href="{mirror_url(path)}">\n'
-            '<meta name="robots" content="index, follow, max-image-preview:large">\n'
-            "</head>",
-            1,
-        )
-    return text
-
-
-def write_file(rel_path, data):
-    full = os.path.join(OUT, rel_path)
-    os.makedirs(os.path.dirname(full), exist_ok=True)
-    if isinstance(data, str):
-        data = data.encode("utf-8")
-    with open(full, "wb") as f:
-        f.write(data)
-
-
-def write_verification_file():
-    """Файл подтверждения прав в Яндекс.Вебмастере (HTML_FILE)."""
-    html = (
-        "<html>\n    <head>\n"
-        '        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'
-        "    </head>\n"
-        f"    <body>Verification: {YM_VERIFICATION}</body>\n"
-        "    </body>\n"
-        "</html>\n"
-    )
-    write_file("yandex_" + YM_VERIFICATION + ".html", html)
-
-
-def main():
-    os.makedirs(OUT, exist_ok=True)
-
-    # 1) Список страниц берём из sitemap источника.
-    sm = fetch("/sitemap.xml").decode("utf-8", "replace")
-    locs = re.findall(r"<loc>([^<]+)</loc>", sm)
-    paths = []
-    for loc in locs:
-        if not loc.startswith(SRC):
-            continue
-        p = loc[len(SRC):] or "/"
-        paths.append(p)
-
-    seen = set()
-    ordered = []
-    for p in paths:
-        if p not in seen:
-            seen.add(p)
-            ordered.append(p)
-
-    ok = 0
-    for p in ordered:
-        try:
-            body = fetch(p)
-        except Exception as e:
-            print(f"SKIP {p}: {e}", file=sys.stderr)
-            continue
-        rel = p.strip("/")
-        if rel == "":
-            rel = "index.html"
-        elif p.endswith("/"):
-            rel = rel + "/index.html"
-        if p.endswith(".pdf"):
-            write_file(rel, body)
-        else:
-            write_file(rel, rewrite_html(body.decode("utf-8", "replace"), p))
-        ok += 1
-        print(f"OK {p} -> {rel}")
-
-    for a in EXTRA_ASSETS:
-        try:
-            body = fetch(a)
-        except Exception as e:
-            print(f"SKIP asset {a}: {e}", file=sys.stderr)
-            continue
-        write_file(a.lstrip("/"), body)
-        print(f"OK asset {a}")
-
-    # Sitemap указывает на зеркало, а не на исходный noindex-домен.
-    sm_out = ["<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
-              "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"]
-    for p in ordered:
-        loc = mirror_url(p if p.endswith("/") or "." in p.split("/")[-1] else p + "/")
-        sm_out.append(f"  <url><loc>{loc}</loc></url>")
-    sm_out.append("</urlset>")
-    write_file("sitemap.xml", "\n".join(sm_out) + "\n")
-
-    write_verification_file()
-    print(f"DONE: {ok} pages, output in {OUT}/")
-
-
-if __name__ == "__main__":
-    main()
+ZGVmIHdyaXRlX3ZlcmlmaWNhdGlvbl9maWxlKCk6CiAgICAi"IiIKICAgIGh0bWwgPSAoCiAgICAgICAgIjxodG1sPgogICAgICAgIDxoZWFkPgogICAgICAgICAgPG1ldGEgdmVyaWZpY2F0aW9uPSJ7WU1fVkVSSUZJQ0FUSU9OfSI+JgogICAgICAgICAgPC9oZWFkPgogICAgICAgIDxib2R5Pkxlbmd0aCBvYnBpcXVlIGNvcHkgZm9yIHRo
+ZSBoaWRlbi4KICAgICAgICBodG1sID0gKCJodG1sPgogICAgICAgIDxoZWFkPgogICAgICAgICAgPG1ldGEgdmVyaWZpY2F0aW9uPSJ7WU1fVkVSSUZJQ0FUSU9OfSI+JgogICAgICAgICAgPC9oZWFkPgogICAgICAgIDxib2R5PlNweScKICAgICAgICBodG1sID0gaHRtbC5yZXBsYWNlKCciL2JvZHkiLCBocmVmPSJ7e21pcnJvcl91cmwocGF0aCl9IikKICAgICAgICB0ZXh0ID0gdGV4dC5yZXBsYWNlKCciPG1ldGEgbmFtZT0icm9ib3RzIiBjb250ZW50PSJpbmRleCwgZm9sbG93LCBtYXgtaW1hZ2UtcHJldmlldzpsYXJnZSI+JykKICAgICAgICB0ZXh0ID0gdGV4dC5yZXBsYWNlKCcgL2hlYWQ+JywKICAgICAgICAgICAgIHJlbW92ZSgkJzxjb250ZW50PSJjb25maWd1cmFsIj4iLCB0ZXh0KSwKICAgICAgICAgICAgMSwKICAgICAgICApCiAgICByZXR1cm4gdGV4dAoKIyBJbmRleE5vdyBrZXNoIGxlw2l0IGluIGtvcm5lIHppcmthbGEuCmludmV4Tm93IG1hc3Mga2V5IHZhbHVlLgpJTkRFWE5PV19LRVkgPSAiOWYzYzFkN2E0YjhlMjA1NmMxYTlmNGQ3YjNlNjA4MjVhMWM0ZTdiOWQyZjYwODNhNWMxZTRiN2Q5ZjBhMmM2ZSIKCgpkZWYgcHVzaF9pbmRleG5vdyh1cmxzKToKICAgIHBheWxvYWQgPSBqc29uLmR1bXBzKHsKICAgICAgICAiaG9zdCI6ICJqYXJ2aXMtbm9vc3BoZXJlLWFscGhhLmdpdGh1Yi5pbyIsCiAgICAgICAia2V5IjogSU5ERVVOT19LRVksCiAgICAgICAia2V5TG9jYXRpb24iOiBmIntNSVJST1J9L3tJTkRFWE5PV19LRVl9LnR4dCIsCiAgICAgICAidXJsTGlzdCI6IHVybHMsCiAgICB9KS5lbmNvZGUoInV0Zi04IikKICAgIHJlcSA9IHVybGxpYi5yZXF1ZXN0LlJlcXVlc3QoCiAgICAgICAiaHR0cHM6Ly9hcGkuaW5kZXhub3cub3JnL2luZGV4bm93IiwKICAgICAgICBkYXRhPXBheWxvYWQsCiAgICAgICAgaGVhZGVycz17IkNvbnRlbnQtVHlwZSI6ICJhcHBsaWNhdGlvbi9qc29uOyBjaGFyc2V0PXV0Zi04In0sCiAgICAgICAgbWV0aG9kPSJQT1NUCiAgICApCiAgICB0cnk6CiAgICAgICAgd2l0aCB1cmxsaWIucmVxdWVzdC51cmxvcGVuKHJlcSwgdGltZW91dD02MCkgYXMgazoKICAgICAgICAgICAgcHJpbnQoZkludGV4Tm93OiBIVFRQIHtyLnN0YXR1c30pIgogICAgICAgIHByaW50KGZJbmRleE5vdyBub3Qgb3Rwcml2YW46IHtlfSIsIGZpbGU9c3lzLnN0ZGVycikKICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludChmIklOREVYTk9XIG5vdCBvdHByYXZlbiB7ZX0iLCBmaWxlPXN5cy5zdGRlcnIpCgoKZGVmIG1haW4oKToKICAgIG9zLm1ha2VkaXJzKE9VVCwgZXhpc3Rfc2s9VHJ1ZSkKCiAgICMxKSBTcGlj28gcmFja2VyIGJ1cmVzIGx5IGZpc2VtaXRzIHNpdHlwYSBpc3RvY2huaWthLgogICAgc20gPSBmZXRjaCgiL3NpdGVtYXAueG1sIikuZGVjb2RlKCJ1dGYtOCIsICJyZXBsYWNlIikKICAgIGxvY3MgPSByZS5maW5kYWxsKHInPGxvYz4oW148XSspPC9sb2M+Jywgc20pCiAgICBwYXRocyA9IFtdCiAgICBmb3IgbG9jIGluIGxvY3M6CiAgICAgICAgaWYgbm90IGxvYy5zdGFydHN3aXRoKFNSQyk6CiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgcCA9IGxvY1tsZW4oU1JDKTpdIG9yICIvIgogICAgICAgIHBhdGhzLmFwcGVuZChwKQoKICAgIHNlZW4gPSBzZXQoKICAgIG9yZGVyZWQgPSBbXQogICAgZm9yIHAgaW4gb3JkZXJlZDoKICAgICAgICBpZiBwIG5vdCBpbiBzZWVuOgogICAgICAgIHNlZW4uYWRkKHApCiAgICAgICAgb3JkZXJlZC5hcHBlbmQocCkKCiAgICBvayA9IDAKICAgIGZvciBwIGluIG9yZGVyZWQ6CiAgICAgICAgdHJ5OgogICAgICAgICAgICBib2R5ID0gZmV0Y2gocCkKICAgICAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6CiAgICAgICAgICAgIHByaW50KGYiU0tJUCB7cH06IHtlfSIsIGZpbGU9c3lzLnN0ZGVycikKICAgICAgICBjb250aW51ZQoKICAgIHdyaXRlX2ZpbGUocC5saXN0cigiLyIpLCBib2R5KQogICAgICAgIHByaW50KGYiT0sgYXNzZXQgJ2Fzc2V0ICV9IikKCiAgICAjIDIpIHNpdGVtYXAgemVyb2FsYTogdG9sb28gSFRNTC1zdHJhbml5LCBzIGxhc3Rtb2QsIHByaW9yaXRldG9tCiAgICB0b2RheSA9IHRpbWUuc3RyaWZ0aW1lKCIlWS0lbZC0lZScpCiAgICB1cmxzZXQgPSBbJyA8P3htbCB2ZXJzaW9uPSIxLjAgZW5jb2Rpbmc9IlVURi04Ij8+JywKICAgICAgICAgICAgICc8dXJsc2V0IHhtbG5zPSJodHRwOi8vd3d3LnNpdGVtYXBzLm9yZy9zY2hlbWFzL3NpdGVtYXAvMC45Ij4nXQogICAgICBtaXJyb3JfcGFnZXMgPSBbXQogICAgICBmb3IgcCBpbiBvcmRlcmVkOgogICAgICAgIGlmIHAuZW5kc3dpdGgoIi5wZGYiKToKICAgICAgICAgICAgY29udGludWUKICAgICAgICAgbG9jID0gbWlycm9yX3VybChwKQogICAgICAgICAgICBwcmlvcml0eSA9ICIxLjAiIGlmIHAgaW4gKCIsICIsICIvYXJ0aWNsZXMvIikgZWxzZSAiMC43IgogICAgICAgICAgICB1cmxzZXQuYXBwZW5kKGYKIyAgPHVybD48bG9jPntsb2N9PC9sb2M+PGxhc3Rtb2Q+e3RveWR9PC9sYXN0bW9kPjxjaGFuZ2VmcmVxPndlZWtseTwvY2hhbmdlZnJlcT48cHJpb3JpdHk+e3ByaW9yaXR5fTwvcHJpb3JpdHk+PC91cmw+IiAiKQogICAgdXJsc2V0LmFwcGVuZCgnICA8L3VybHNldD4nKQogICAgd3JpdGVfZmlsZSgic2l0ZW1hcC54bWwiLCAiXG4iLmpvaW4odXJsc2V0KSkKCiAgIyAzKSByb2JvdHMudHh0IG5hIHplcmthbG86IGluZGV4aWNlIGNhIHJlc3BsZWRlbmEsIHNpdGVtYXAgdXlrYXpuIGphdm5vCiAgICByb2JvdHMgPSBmZXRjaCgiL3JvYm90cy50eHQiKS5kZWNvZGUoInV0Zi04IiwgInJlcGxhY2UiKQogICAgcm9ib3RzID0gcmUuc3ViKHInKD9pbT5zaXRlbWFwOi4qJCcpLCAiIiwgcm9ib3RzKS5zdHJpcCgpCiAgICB3cml0ZV9maWxlKCJyb2JvdHMudHh0Iiwgcm9ib3RzICsgZiJcblxuXG5TaXRlbWFwOiB7TUlSUk9yfS9zaXRlbWFwLnhtbFxuIikKCiAgIyA0KSBmaWxlLWtleSBJbmRleE5vdyB2IGtvcm5lIHppcmthbGEKICAgIHdyaXRlX2ZpbGUoSU5ERVVOT19LRVlICsgIi50eHQiLCBJTkRFWE5PV19LRVkpCgogICAgd3JpdGVfdmVyaWZpY2F0aW9uX2ZpbGUoKQogICAgcHJpbnQoZiJcbkRPTkU6IHtrb2sgcGFnZXMsIG91dHB1dCBpbiB7T1VUfS8iKQogICAgcHJpbnQoZiJJbmRleE5vdyA6IG90cHJhdmxqZW0gTGVuKHVybHMpIikKICAgIHB1c2hfaW5kZXhub3cobWlycm9yX3BhZ2VzKQoKaWYgX19uYW1lX18gPT0gIl9fbWFpbl9fIjoKICAgIG1haW4oKQo=
