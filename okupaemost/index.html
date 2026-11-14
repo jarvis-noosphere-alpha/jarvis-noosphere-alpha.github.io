@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="3924572dfd6f1636">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор окупаемости салона красоты: точка безубыточности и срок возврата</title>
+<meta name="description" content="Бесплатный калькулятор юнит-экономики салона красоты: выручка, расходы, прибыль, точка безубыточности и срок окупаемости вложений. Без регистрации.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;600;700&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113852395','ym');
+    ym(113852395,'init',{ssr:true,clickmap:true,params:{__ym:{isFromApi:'yesIsFromApi'}},referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113852395" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script>
+/* Переход с Pinterest: пины ведут на сайт без utm-меток, поэтому цель по URL
+   не срабатывала. Ловим реферер и зовём отдельную цель. */
+(function(){
+  var ref = document.referrer || '';
+  if (!/pinterest/i.test(ref)) return;
+  if (!window.ym) { setTimeout(function(){ if (window.ym) window.ym(113852395,'reachGoal','pinterest-referral'); }, 1200); return; }
+  window.ym(113852395,'reachGoal','pinterest-referral');
+})();
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Салон без пустых столов",
+  "url": "https://jarvis-noosphere-alpha.github.io/",
+  "description": "Бесплатный калькулятор юнит-экономики салона красоты: выручка, расходы, прибыль, точка безубыточности и срок окупаемости вложений. Без регистрации.",
+  "inLanguage": "ru-RU",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Артур Сторк"
+  }
+}
+</script>
+<link rel="canonical" href="https://jarvis-noosphere-alpha.github.io/okupaemost/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">Салон без пустых столов</span>
+      <span class="brand-sub">блог</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-hide" href="/articles/">Статьи</a>
+      <a class="nav-hide" href="/wb/">Карточки WB</a>
+      <a class="nav-hide" href="/checklist/">Чек-лист</a>
+      <a class="nav-hide" href="/kalkulyator/">Утечка записи</a>
+      <a class="nav-cta" href="/okupaemost/">Окупаемость</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="tool-head">
+  <div class="wrap">
+    <p class="kicker">Бесплатный калькулятор</p>
+    <h1>Сколько салон должен зарабатывать, чтобы не разориться</h1>
+    <p class="lede">Считаем юнит-экономику салона: выручка, расходы, прибыль, точка безубыточности — сколько записей в месяц нужно, чтобы выйти в ноль. И срок окупаемости вложений.</p>
+  </div>
+</section>
+
+<section class="tool-body">
+  <div class="wrap tool-grid">
+    <div class="tool-form" id="calc">
+      <h2 class="tool-h">Ваши цифры</h2>
+
+      <div class="field">
+        <label for="zapis">Записей принято в месяц</label>
+        <input id="zapis" type="number" inputmode="numeric" min="0" max="3000" step="1" value="180">
+        <p class="hint">Все записи, которые салон принимает, включая отменённые и неявки.</p>
+      </div>
+
+      <div class="field">
+        <label for="sost">Доля состоявшихся записей, %</label>
+        <input id="sost" type="number" inputmode="numeric" min="1" max="100" step="1" value="89">
+        <p class="hint">100 минус отмены и неявки. По бенчмарку Zenoti (США и Канада, 2024) у салонов 8% отмен и 3% неявок — то есть 89% состоявшихся записей. Отмены и неявки считаются отдельно: в вендорских обзорах встречаются завышенные «18% + 12%».</p>
+      </div>
+
+      <div class="field">
+        <label for="chek">Средний чек, ₽</label>
+        <input id="chek" type="number" inputmode="numeric" min="0" max="100000" step="50" value="2500">
+        <p class="hint">Сколько приносит одна состоявшаяся запись.</p>
+      </div>
+
+      <div class="field">
+        <label for="mat">Расходники на клиента, % от чека</label>
+        <input id="mat" type="number" inputmode="numeric" min="0" max="100" step="1" value="15">
+        <p class="hint">Косметика, материалы, расходники на одно посещение. Обычно 10–20%.</p>
+      </div>
+
+      <div class="field">
+        <label for="zp">Зарплата мастеров, ₽/мес</label>
+        <input id="zp" type="number" inputmode="numeric" min="0" max="1000000" step="1000" value="120000">
+        <p class="hint">Оклады всех мастеров салона вместе, до налогов.</p>
+      </div>
+
+      <div class="field">
+        <label for="arenda">Аренда, ₽/мес</label>
+        <input id="arenda" type="number" inputmode="numeric" min="0" max="1000000" step="1000" value="60000">
+        <p class="hint">С учётом коммунальки.</p>
+      </div>
+
+      <div class="field">
+        <label for="prochie">Прочие расходы, ₽/мес</label>
+        <input id="prochie" type="number" inputmode="numeric" min="0" max="1000000" step="1000" value="25000">
+        <p class="hint">Реклама, связь, эквайринг, расходники на хозяйство, подписки.</p>
+      </div>
+
+      <div class="field">
+        <label for="vlozh">Вложения, которые надо окупить, ₽</label>
+        <input id="vlozh" type="number" inputmode="numeric" min="0" max="100000000" step="10000" value="300000">
+        <p class="hint">Ремонт, оборудование, внедрение ассистента — всё, что вы вложили и ждёте возврата.</p>
+      </div>
+
+      <div class="field">
+        <label for="dop">Доп. расходы от внедрения, ₽/мес</label>
+        <input id="dop" type="number" inputmode="numeric" min="0" max="100000" step="100" value="0">
+        <p class="hint">Например, подписка на AI-ассистента. Если вложений не было — поставьте 0.</p>
+      </div>
+
+      <button class="btn btn-primary tool-submit" type="button" id="calc-btn">Посчитать</button>
+      <p class="hint" id="calc-note">Можно менять цифры и пересчитывать — ничего никуда не отправляется.</p>
+    </div>
+
+    <div class="tool-result" id="result" aria-live="polite">
+      <div class="result-empty">
+        <p class="kicker">Результат</p>
+        <h2 class="tool-h">Здесь появится расчёт</h2>
+        <p class="hint">Нажмите «Посчитать» — или просто подставьте свои цифры в поля слева.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="lead-block" hidden>
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <p class="kicker">Таблица · PDF, 2 страницы</p>
+        <h2>Юнит-экономика салона на бумаге</h2>
+        <p>Тот же расчёт, но в виде таблицы с формулами: выручка и расходы, точка безубыточности, окупаемость вложений. Распечатайте или откройте в Excel.</p>
+        <ul class="magnet-list">
+          <li>Блок 1: сколько салон зарабатывает в месяц</li>
+          <li>Блок 2: точка безубыточности и запас прочности</li>
+          <li>Блок 3: срок окупаемости вложений</li>
+        </ul>
+        <p style="margin-top:18px"><a href="/yunit-ekonomika-salona.pdf">Скачать PDF напрямую</a> — если не хочется оставлять контакты.</p>
+      </div>
+      <form class="lead" id="lead" action="/f/lead-unit" method="POST"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" data-spru-hp>
+        <label for="name">Имя</label>
+        <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+        <label for="contact">Телефон или Telegram</label>
+        <input id="contact" name="contact" type="text" placeholder="+7 ... или @nick" required>
+        <label for="salon">Салон (необязательно)</label>
+        <input id="salon" name="salon" type="text" placeholder="Название или город">
+        <button class="btn btn-primary" type="submit">Прислать таблицу</button>
+        <p class="note">Пришлю PDF и один раз спрошу, как у вас с утечкой записи. Больше никаких рассылок.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="kicker">Как считать</p>
+      <h2>Что заложено в расчёт</h2>
+    </div>
+    <ul>
+      <li><strong>Выручка считается по состоявшимся записям</strong> — отмены и неявки не приносят денег, поэтому в базу идут только записи, которые состоялись.</li>
+      <li><strong>Точка безубыточности</strong> — сколько записей в месяц нужно, чтобы постоянные расходы (зарплата, аренда, прочее) были покрыты маржой с каждой записи. Это не «хочу столько», а минимальная цифра, ниже которой салон теряет деньги.</li>
+      <li><strong>Вложения</strong> считаются разовыми и возвращаются из прибыли. Дополнительные ежемесячные расходы от внедрения вычитаются из прибыли каждый месяц.</li>
+    </ul>
+    <p>Если у вас выходит отрицательная прибыль — сначала читайте <a href="/articles/kak-salon-teryaet-dengi-na-pustyh-stolyah/">как салон теряет деньги на пустых столах</a>, потом считайте утечку в <a href="/kalkulyator/">калькуляторе утечки</a>. Часто сначала нужно чинить запись, и только потом считать окупаемость.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Артур Сторк · сайты и AI-ассистенты для салонов</span>
+    <span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/">На главную</a></span>
+  </div>
+</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const num = (id, def) => { const v = parseFloat($('#' + id).value); return isFinite(v) ? Math.max(0, v) : def; };
+const money = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n));
+const plural = (n, a, b, c) => {
+  const m = n % 100, m1 = m % 10;
+  if (m > 10 && m < 20) return c;
+  if (m1 === 1) return a;
+  if (m1 >= 2 && m1 <= 4) return b;
+  return c;
+};
+
+function calc() {
+  const zapis = num('zapis', 0);
+  const sost = num('sost', 0) / 100;
+  const chek = num('chek', 0);
+  const mat = num('mat', 0) / 100;
+  const zp = num('zp', 0);
+  const arenda = num('arenda', 0);
+  const prochie = num('prochie', 0);
+  const vlozh = num('vlozh', 0);
+  const dop = num('dop', 0);
+
+  const sostalo = zapis * sost;
+  const vyruchka = sostalo * chek;
+  const materialy = vyruchka * mat;
+  const postoyannye = zp + arenda + prochie;
+  const rashody = postoyannye + materialy + dop;
+  const pribyl = vyruchka - rashody;
+  const margin = vyruchka > 0 ? pribyl / vyruchka * 100 : 0;
+
+  const marka = chek * (1 - mat);
+  const tochka = marka > 0 ? Math.ceil(postoyannye / marka) : 0;
+  const zapas = sostalo - tochka;
+
+  const okup = pribyl > 0 ? Math.ceil(vlozh / pribyl) : null;
+  const rentabelnost = vlozh > 0 && pribyl > 0 ? (pribyl * 12) / vlozh * 100 : null;
+
+  $('#result').innerHTML = `
+    <p class="kicker">Экономика салона</p>
+    <div class="result-big">
+      <span class="result-num">${money(pribyl)} ₽</span>
+      <span class="result-per">${pribyl >= 0 ? 'прибыль в месяц' : 'убыток в месяц'}</span>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${money(vyruchka)} ₽</span>
+        <span class="rc-lab">выручка в месяц</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(rashody)} ₽</span>
+        <span class="rc-lab">расходов в месяц</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${margin.toFixed(1).replace('.', ',')}%</span>
+        <span class="rc-lab">рентабельность по выручке</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${Math.round(sostalo)}</span>
+        <span class="rc-lab">${plural(Math.round(sostalo), 'запись', 'записи', 'записей')} состоялось</span>
+      </div>
+    </div>
+
+    <p class="kicker" style="margin-top:26px">Точка безубыточности</p>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${tochka}</span>
+        <span class="rc-lab">записей в месяц нужно, чтобы выйти в ноль</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${zapas >= 0 ? '+' : ''}${Math.round(zapas)}</span>
+        <span class="rc-lab">${zapas >= 0 ? 'запас прочности, состоявшихся записей' : 'не хватает состоявшихся записей'}</span>
+      </div>
+    </div>
+    ${zapas < 0 ? `<p class="result-note">Сейчас вы ниже точки безубыточности на <strong>${Math.round(-zapas)} ${plural(Math.round(-zapas), 'запись', 'записи', 'записей')}</strong> в месяц. Дефицит в ${money(-pribyl)} ₽ в месяц — это и есть ваш убыток. <a href="/kalkulyator/">Посчитайте утечку записи →</a></p>` : `<p class="result-note">У вас <strong>${Math.round(zapas)} ${plural(Math.round(zapas), 'запись', 'записи', 'записей')}</strong> запаса прочности сверх точки безубыточности. Это ваш буфер на отпуск, больничный и неудачный месяц.</p>`}
+
+    ${vlozh > 0 ? `
+    <p class="kicker" style="margin-top:26px">Окупаемость вложений</p>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${okup === null ? '—' : okup + ' мес'}</span>
+        <span class="rc-lab">${okup === null ? 'вложения не окупятся при текущей прибыли' : 'окупаемость вложений ' + money(vlozh) + ' ₽'}</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${rentabelnost === null ? '—' : rentabelnost.toFixed(0).replace('.', ',') + '%'}</span>
+        <span class="rc-lab">${rentabelnost === null ? 'нужен положительный результат' : 'рентабельность вложений за год'}</span>
+      </div>
+    </div>` : ''}
+
+    ${pribyl > 0 && okup !== null && okup > 12 ? `<p class="result-note">Окупаемость дольше 12 месяцев — это нормально только для того, что повышает загрузку салона. Всё остальное лучше отложить.</p>` : ''}
+    ${pribyl > 0 && okup !== null && okup <= 6 ? `<p class="result-note">Вложения окупаются быстро. При такой прибыли можно позволить себе считать не только выручку, но и то, сколько салон теряет на пустых слотах. <a href="/kalkulyator/">Посчитать утечку →</a></p>` : ''}
+    ${pribyl <= 0 ? `<p class="result-note">Пока салон в минусе, любые вложения — это деньги, которые не вернутся. Сначала поднимите долю состоявшихся записей и урежьте постоянные расходы.</p>` : ''}
+  `;
+  $('#lead-block').hidden = false;
+}
+
+$('#calc-btn').addEventListener('click', () => {
+  calc();
+  if (window.ym) { window.ym(113852395, 'reachGoal', 'calc-okupaemost'); }
+});
+$('#calc').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); calc(); } });
+['zapis', 'sost', 'chek', 'mat', 'zp', 'arenda', 'prochie', 'vlozh', 'dop'].forEach((id) => {
+  $('#' + id).addEventListener('input', () => { if ($('#result .result-big')) calc(); });
+});
+
+document.getElementById('lead').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const res = await fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)) });
+  if (res.ok) {
+    if (window.ym) { window.ym(113852395, 'reachGoal', 'lead-unit-submitted'); }
+    form.outerHTML = '<div class="form-ok"><p><strong>Готово.</strong> Таблицу высылаю в Telegram — если не придёт в течение часа, напишите на t.me/ArturCopilot_bot.</p></div>';
+  } else {
+    form.querySelector('.note').textContent = 'Не отправилось. Напишите, пожалуйста, на t.me/ArturCopilot_bot.';
+  }
+});
+
+calc();
+</script>
+<script src="https://spru.site/badge.js" data-site="73ebd9" defer></script>
+</body>
+</html>

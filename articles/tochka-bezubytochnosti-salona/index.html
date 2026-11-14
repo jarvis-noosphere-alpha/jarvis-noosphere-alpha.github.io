@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="3924572dfd6f1636">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Точка безубыточности салона красоты: как посчитать и что с этим делать</title>
+<meta name="description" content="Как посчитать точку безубыточности салона красоты: формула, пример на реальных цифрах, запас прочности и три решения, когда запись ниже точки безубыточности.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;600;700&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113852395','ym');
+    ym(113852395,'init',{ssr:true,clickmap:true,params:{__ym:{isFromApi:'yesIsFromApi'}},referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113852395" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script>
+/* Переход с Pinterest: пины ведут на сайт без utm-меток, поэтому цель по URL
+   не срабатывала. Ловим реферер и зовём отдельную цель. */
+(function(){
+  var ref = document.referrer || '';
+  if (!/pinterest/i.test(ref)) return;
+  if (!window.ym) { setTimeout(function(){ if (window.ym) window.ym(113852395,'reachGoal','pinterest-referral'); }, 1200); return; }
+  window.ym(113852395,'reachGoal','pinterest-referral');
+})();
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Салон без пустых столов",
+  "url": "https://jarvis-noosphere-alpha.github.io/",
+  "description": "Как посчитать точку безубыточности салона красоты: формула, пример на реальных цифрах, запас прочности и три решения, когда запись ниже точки безубыточности.",
+  "inLanguage": "ru-RU",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Артур Сторк"
+  }
+}
+</script>
+<link rel="canonical" href="https://jarvis-noosphere-alpha.github.io/articles/tochka-bezubytochnosti-salona/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">Салон без пустых столов</span>
+      <span class="brand-sub">блог</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-hide" href="/articles/">Статьи</a>
+      <a class="nav-hide" href="/wb/">Карточки WB</a>
+      <a class="nav-hide" href="/checklist/">Чек-лист</a>
+      <a class="nav-hide" href="/kalkulyator/">Утечка записи</a>
+      <a class="nav-hide" href="/zarplata/">Зарплата мастера</a>
+      <a class="nav-hide" href="/okupaemost/">Окупаемость</a>
+      <a class="nav-cta" href="/okupaemost/">Посчитать</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<article>
+<section class="tool-head">
+  <div class="wrap narrow">
+    <p class="kicker">Расчёт · 6 мин</p>
+    <h1>Точка безубыточности салона красоты: как посчитать</h1>
+    <p class="lede">Сколько записей в месяц нужно, чтобы салон перестал терять деньги. Формула, пример на реальных цифрах и три решения, когда запись ниже этой точки.</p>
+    <p class="meta">29 октября 2026 · 6 минут чтения</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow prose">
+    <p>Точка безубыточности — это не абстракция из экономического института. В салоне это конкретная цифра: сколько записей в месяц нужно, чтобы выручка покрыла аренду, зарплату мастеров и расходники. Ниже неё салон работает в минус. Выше — зарабатывает.</p>
+    <p>Считать её полезно по одной причине: она показывает, что проблема не в том, что «мало клиентов», а в том, сколько именно нужно и сколько не хватает. Это две разные задачи с разными решениями.</p>
+
+    <h2>Формула в одном абзаце</h2>
+    <p>Считаем в три шага:</p>
+    <ol>
+      <li><strong>Постоянные расходы</strong> — всё, что вы платите, даже если никто не пришёл: зарплата мастеров, аренда, реклама, связь, эквайринг.</li>
+      <li><strong>Маржа с одной записи</strong> — средний чек минус расходники на клиента. Если чек 2 500 ₽, а расходники 15% (375 ₽), маржа — 2 125 ₽.</li>
+      <li><strong>Точка безубыточности</strong> — постоянные расходы, делённые на маржу.</li>
+    </ol>
+    <p>Постоянные расходы считаем по состоявшимся записям, а не по всем принятым: отменившаяся запись денег не принесла, но аренду вы платите в любом случае.</p>
+
+    <h2>Пример на конкретных цифрах</h2>
+    <p>Возьмём салон на два кресла:</p>
+    <ul>
+      <li>180 записей принято в месяц, из них 89% состоялись — это 160 записей (отмены и неявки считаются отдельно: 8% и 3% по бенчмарку Zenoti);</li>
+      <li>средний чек 2 500 ₽ → выручка 400 000 ₽;</li>
+      <li>расходники 15% → 60 000 ₽;</li>
+      <li>зарплата мастеров 120 000 ₽, аренда 60 000 ₽, прочее 25 000 ₽ → постоянные 205 000 ₽.</li>
+    </ul>
+    <p>Маржа с записи: 2 500 − 375 = 2 125 ₽. Точка безубыточности: 205 000 ÷ 2 125 = <strong>97 записей в месяц</strong>.</p>
+    <p>Салон делает 160 состоявшихся записей. Запас прочности — 63 записи. Если из-за отмен и неявок записи опустятся до 97, салон выходит в ноль; ниже — в минус.</p>
+    <p>Теперь смотрим на другую сторону. Что будет, если состоялись только 50 записей вместо 160? Выручка 125 000 ₽, маржа 106 250 ₽ — против постоянных расходов 205 000 ₽. Убыток почти 100 000 ₽ в месяц. Те же 180 записей в журнале — совершенно другой салон.</p>
+
+    <h2>Запас прочности важнее прибыли</h2>
+    <p>Прибыль 30 000 ₽ и запас прочности 63 записи — это салон, который держится на одном неудачном месяце. Уволился мастер, отменилась большая предоплаченная запись, в июле пустые недели — и салон в минусе.</p>
+    <p>Нормальный ориентир для маленького салона: запас прочности от 30% до 50% от точки безубыточности. Если ваши записи впритык к точке — это не «нормально», это «одна плохая неделя отправляет в минус». И именно этот салон первым попадает под сокращение: не закрывается, а сворачивается.</p>
+
+    <h2>Три решения, когда вы ниже точки</h2>
+    <p><strong>Проверьте ставку и график.</strong> Аренда 60 000 ₽ при 160 записях — нормально. При 70 записях та же аренда съедает половину выручки. Иногда выгоднее переехать в помещение дешевле, чем набирать клиентов в текущем.</p>
+    <p><strong>Считайте в себестоимости записи, а не в ставках.</strong> Администратор, который стоит 30 000 ₽, но занимается записью 40 часов в месяц, обходится салону в 750 ₽ за час. Если эти 40 часов можно закрыть автоматизацией за 5 900 ₽ в месяц — считайте это, а не интуицию «у нас нет денег на нового сотрудника».</p>
+
+    <h2>Что считать, а что не считать</h2>
+    <ul>
+      <li><strong>Считайте:</strong> выручку по состоявшимся записям, расходники на клиента, постоянные расходы, точку безубыточности, запас прочности, срок окупаемости вложений.</li>
+      <li><strong>Не считайте как «доход»:</strong> предоплату до визита, подарочные сертификаты и рекламные акции — это либо будущая выручка, либо уже не деньги. Если считаете в месяц фактического визита, не дублируйте.</li>
+      <li><strong>Не забывайте:</strong> часы администратора — не бесплатный труд. В салоне на 180 записей это 20–30 часов в месяц, которые кто-то оплачивает из прибыли.</li>
+    </ul>
+
+    <h2>Считайте раз в месяц, а не в год</h2>
+    <p>Юнит-экономика — не разовый расчёт «на бумаге», а повторяющаяся процедура. Раз в месяц, после закрытия смен: сколько записей, сколько состоялось, какой чек, сколько расходников, какая аренда и зарплата. Десять минут в начале месяца дают цифру, на которой можно принимать решения, а не тревожиться.</p>
+    <p>И держите в голове главное: точка безубыточности — не план и не оценка. Это минимум, ниже которого салон теряет деньги. Всё, что выше, — ваш запас прочности и прибыль.</p>
+
+    <p><a class="btn btn-primary" href="/okupaemost/">Посчитать свою точку безубыточности →</a></p>
+    <p>Калькулятор бесплатный, работает в браузере, ничего никуда не отправляет. Если нужна та же таблица на бумаге — <a href="/yunit-ekonomika-salona.pdf">скачайте PDF с формулами</a> или <a href="/articles/bot-ili-administrator-na-stavke/">почитайте, как считать окупаемость автоматизации</a>.</p>
+  </div>
+</section>
+</article>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="kicker">Что почитать дальше</p>
+      <h2>Связанные материалы</h2>
+    </div>
+    <ul>
+      <li><a href="/articles/kak-salon-teryaet-dengi-na-pustyh-stolyah/">Как салон теряет деньги на пустых столах</a></li>
+      <li><a href="/articles/kak-poschitat-procent-otmen-v-salone/">Как посчитать процент отмен в салоне</a></li>
+      <li><a href="/articles/bot-ili-administrator-na-stavke/">Бот или администратор на ставке: считаем на реальном салоне</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Артур Сторк · сайты и AI-ассистенты для салонов</span>
+    <span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/">На главную</a></span>
+  </div>
+</footer>
+<script src="https://spru.site/badge.js" data-site="73ebd9" defer></script>
+</body>
+</html>

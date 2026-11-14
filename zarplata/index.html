@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор зарплаты мастера: сколько салон должен мастеру за смену</title>
+<meta name="description" content="Бесплатный калькулятор для салонов красоты: считаем зарплату мастера за смену по вашим цифрам, показываем типовую ошибку расчёта и сколько салон теряет на ручном расчёте. Без регистрации.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;600;700&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113852395','ym');
+    ym(113852395,'init',{ssr:true,clickmap:true,params:{__ym:{isFromApi:'yesIsFromApi'}},referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113852395" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script>
+/* Переход с Pinterest: пины ведут на сайт без utm-меток, поэтому цель по URL
+   не срабатывала. Ловим реферер и зовём отдельную цель. */
+(function(){
+  var ref = document.referrer || '';
+  if (!/pinterest/i.test(ref)) return;
+  if (!window.ym) { setTimeout(function(){ if (window.ym) window.ym(113852395,'reachGoal','pinterest-referral'); }, 1200); return; }
+  window.ym(113852395,'reachGoal','pinterest-referral');
+})();
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Салон без пустых столов",
+  "url": "https://jarvis-noosphere-alpha.github.io/",
+  "description": "Бесплатный калькулятор для салонов красоты: считаем зарплату мастера за смену по вашим цифрам, показываем типовую ошибку расчёта и сколько салон теряет на ручном расчёте. Без регистрации.",
+  "inLanguage": "ru-RU",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Артур Сторк"
+  }
+}
+</script>
+<meta name="yandex-verification" content="3924572dfd6f1636">
+<link rel="canonical" href="https://jarvis-noosphere-alpha.github.io/zarplata/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">Салон без пустых столов</span>
+      <span class="brand-sub">блог</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-hide" href="/articles/">Статьи</a>
+      <a class="nav-hide" href="/checklist/">Чек-лист</a>
+      <a class="nav-hide" href="/kalkulyator/">Утечка записей</a>
+      <a class="nav-cta" href="/zarplata/">Расчёт зарплаты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="tool-head">
+  <div class="wrap">
+    <p class="kicker">Бесплатный калькулятор</p>
+    <h1>Сколько салон должен мастеру за смену</h1>
+    <p class="lede">Введите цифры по одному мастеру — покажем, сколько он фактически заработал, сколько салон ему платит и сколько стоит ручной расчёт в таблице. Без регистрации, ответ сразу на экране.</p>
+  </div>
+</section>
+
+<section class="tool-body">
+  <div class="wrap tool-grid">
+    <div class="tool-form" id="calc">
+      <h2 class="tool-h">Данные по мастеру за месяц</h2>
+
+      <div class="field">
+        <label for="smen">Смен у мастера в месяц</label>
+        <input id="smen" type="number" inputmode="numeric" min="0" max="40" step="1" value="22">
+        <p class="hint">Сколько смен мастер реально отработал за месяц.</p>
+      </div>
+
+      <div class="field">
+        <label for="vyr_smen">Выручка мастера за одну смену, ₽</label>
+        <input id="vyr_smen" type="number" inputmode="numeric" min="0" max="500000" step="100" value="18000">
+        <p class="hint">Только его услуги — не выручка всего салона за день.</p>
+      </div>
+
+      <div class="field">
+        <label for="dolya">Процент мастера от выручки, %</label>
+        <input id="dolya" type="number" inputmode="numeric" min="0" max="100" step="1" value="40">
+        <p class="hint">Сколько от выручки забирает мастер по договору. В салонах — 30–50%.</p>
+      </div>
+
+      <div class="field">
+        <label for="chavye">Чаевые за смену, ₽</label>
+        <input id="chavye" type="number" inputmode="numeric" min="0" max="50000" step="50" value="500">
+        <p class="hint">Если чаевые не учитываются в расчёте — поставьте 0.</p>
+      </div>
+
+      <div class="field">
+        <label for="shtraf">Штрафы за месяц, ₽</label>
+        <input id="shtraf" type="number" inputmode="numeric" min="0" max="100000" step="100" value="0">
+        <p class="hint">За опоздание, срыв записи, отмену. Обычно это спорные суммы.</p>
+      </div>
+
+      <div class="field">
+        <label for="minut">Минут на ручной расчёт одной смены</label>
+        <input id="minut" type="number" inputmode="numeric" min="0" max="240" step="1" value="20">
+        <p class="hint">Свести услуги, часы, чаевые, штрафы, подписать. Обычно 15–40 минут.</p>
+      </div>
+
+      <div class="field">
+        <label for="chas_admin">Стоимость часа администратора, ₽</label>
+        <input id="chas_admin" type="number" inputmode="numeric" min="0" max="10000" step="10" value="400">
+        <p class="hint">Оклад с налогами, делённый на рабочие часы в месяц.</p>
+      </div>
+
+      <div class="field">
+        <label for="mesterov">Мастеров в салоне</label>
+        <input id="mesterov" type="number" inputmode="numeric" min="1" max="100" step="1" value="6">
+        <p class="hint">Считаем по всему салону — так увидите масштаб.</p>
+      </div>
+
+      <button class="btn btn-primary tool-submit" type="button" id="calc-btn">Посчитать</button>
+      <p class="hint" id="calc-note">Можно менять цифры и пересчитывать — ничего никуда не отправляется.</p>
+    </div>
+
+    <div class="tool-result" id="result" aria-live="polite">
+      <div class="result-empty">
+        <p class="kicker">Результат</p>
+        <h2 class="tool-h">Здесь появится расчёт</h2>
+        <p class="hint">Нажмите «Посчитать» — или просто подставьте свои цифры в поля слева.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="lead-block" hidden>
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <p class="kicker">Разбор · бесплатно, 20 минут</p>
+        <h2>Разберу расчёт зарплаты вашего мастера</h2>
+        <p>Пришлите свой расчёт или выгрузку из YCLIENTS/DIKIDI за месяц — покажу, где расходится с договором, сколько это стоит салону и сколько времени уходит на ручной пересчёт.</p>
+        <ul class="magnet-list">
+          <li>Считаем от выручки мастера, а не от выручки салона</li>
+          <li>Чаевые, допы и штрафы — в одной таблице</li>
+          <li>История перерасчётов, чтобы спор не повторялся</li>
+        </ul>
+        <p style="margin-top:18px"><a href="/checklist/?from=zarplata">Открыть чек-лист 8 утечек салона</a></p>
+      </div>
+      <form class="lead" id="lead" action="/f/lead-zarplata" method="POST"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" data-spru-hp>
+        <label for="name">Имя</label>
+        <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+        <label for="contact">Телефон или Telegram</label>
+        <input id="contact" name="contact" type="text" placeholder="+7 ... или @nick" required>
+        <label for="salon">Салон (необязательно)</label>
+        <input id="salon" name="salon" type="text" placeholder="Название или город">
+        <button class="btn btn-primary" type="submit">Прислать расчёт</button>
+        <p class="note">Напишу в Telegram, договоримся о времени. Никаких рассылок.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="kicker">Как считать</p>
+      <h2>Что заложено в расчёт</h2>
+    </div>
+    <p>Зарплата мастера — зона, которую в салоне считают вручную: в таблице, в заметках телефона, иногда «на глаз». Мы считаем её так же, как в договоре: процент от выручки мастера за отработанные смены, плюс чаевые, минус согласованные штрафы.</p>
+    <ul>
+      <li><strong>Выручка мастера</strong> — только его услуги. Если считать от выручки салона за смену, мастер получает меньше, чем по договору, и это типовая претензия в расчётах.</li>
+      <li><strong>Смены, а не часы</strong> — оплата по сменам проще для обеих сторон и не превращается в спор о минутах.</li>
+      <li><strong>Чаевые</strong> — частая причина расхождений: их то считают, то не считают, и мастер видит разные цифры в разные месяцы.</li>
+      <li><strong>Штрафы</strong> — показываем отдельно, до вычета, чтобы было видно, сколько салон удерживает и из-за чего спор.</li>
+    </ul>
+    <p>Отдельная статья — <strong>стоимость ручного расчёта</strong>: часы администратора на сведение таблиц. На салоне в 6 мастеров это десятки часов в месяц, и они не попадают ни в одну отчётность.</p>
+    <p><a href="/articles/kak-rasschitat-zarplatu-masterna-v-salone/">Как рассчитать зарплату мастера: формула, чаевые и штрафы по ТК РФ →</a></p>
+    <p><a href="/articles/tochka-bezubytochnosti-salona/">Как посчитать точку безубыточности салона →</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Артур Сторк · сайты и AI-ассистенты для салонов</span>
+    <span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/">На главную</a></span>
+  </div>
+</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const num = (id, def) => { const v = parseFloat($('#' + id).value); return isFinite(v) ? Math.max(0, v) : def; };
+const money = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n));
+const plural = (n, a, b, c) => {
+  const m = n % 100, m1 = n % 10;
+  if (m > 10 && m < 20) return c;
+  if (m1 === 1) return a;
+  if (m1 >= 2 && m1 <= 4) return b;
+  return c;
+};
+
+function calc() {
+  const smen = num('smen', 0);
+  const vyr = num('vyr_smen', 0);
+  const dolya = num('dolya', 0) / 100;
+  const chavye = num('chavye', 0);
+  const shtraf = num('shtraf', 0);
+  const minut = num('minut', 0);
+  const chasAdmin = num('chas_admin', 0);
+  const mesterov = num('mesterov', 1);
+
+  const vyrMes = vyr * smen;
+  const dolyaMes = vyrMes * dolya;
+  const chavyeMes = chavye * smen;
+  const naчислено = dolyaMes + chavyeMes;
+  const naHands = Math.max(0, naчислено - shtraf);
+  const vChasy = smen * minut / 60;
+  const vChasyInt = Math.round(vChasy);
+  const stoimostRuchnogo = vChasy * chasAdmin;
+  const vChasySalon = vChasy * mesterov;
+  const stoimostSalon = stoimostRuchnogo * mesterov;
+  const vChasySalonInt = Math.round(vChasySalon);
+
+  const chasovMes = 160;
+  const dolyaVremeni = chasovMes > 0 ? Math.min(100, vChasySalon / chasovMes * 100) : 0;
+
+  $('#result').innerHTML = `
+    <p class="kicker">Расчёт по одному мастеру</p>
+    <div class="result-big">
+      <span class="result-num">${money(naHands)} ₽</span>
+      <span class="result-per">на руки в месяц</span>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${money(vyrMes)} ₽</span>
+        <span class="rc-lab">выручка мастера за ${smen} ${plural(smen, 'смену', 'смены', 'смен')}</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(dolyaMes + chavyeMes)} ₽</span>
+        <span class="rc-lab">начислено до штрафов</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(shtraf)} ₽</span>
+        <span class="rc-lab">удержано штрафами${shtraf > 0 ? ' — предмет спора' : ''}</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${vChasyInt} ч</span>
+        <span class="rc-lab">ручного расчёта на мастера (${money(stoimostRuchnogo)} ₽)</span>
+      </div>
+    </div>
+    ${mesterov > 1 ? `<p class="result-note">На весь салон: <strong>${vChasySalonInt} ч</strong> ручного расчёта в месяц — это <strong>${money(stoimostSalon)} ₽</strong>, которые никто не видит в отчётности. Плюс ${money(naHands * mesterov)} ₽ на руки мастерам.</p>` : ''}
+    ${dolyaVremeni > 5 ? `<p class="result-note">Ручной расчёт занимает <strong>${Math.round(dolyaVremeni)}%</strong> рабочего времени администратора. Это самый простой кандидат на автоматизацию в салоне.</p>` : ''}
+    <p class="result-cta">Посчитайте по своим цифрам и сравните с расчётом, который ведёт ваш салон. <a href="#lead-block">Разберу ваш расчёт →</a></p>
+  `;
+  $('#lead-block').hidden = false;
+}
+
+$('#calc-btn').addEventListener('click', () => {
+  calc();
+  if (window.ym) { window.ym(113852395, 'reachGoal', 'calc-zarplata'); }
+});
+$('#calc').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); calc(); } });
+['smen', 'vyr_smen', 'dolya', 'chavye', 'shtraf', 'minut', 'chas_admin', 'mesterov'].forEach((id) => {
+  $('#' + id).addEventListener('input', () => { if ($('#result .result-big')) calc(); });
+});
+
+document.getElementById('lead').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const res = await fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)) });
+  if (res.ok) {
+    if (window.ym) { window.ym(113852395, 'reachGoal', 'lead-zarplata-submitted'); }
+    form.outerHTML = '<div class="form-ok"><p><strong>Готово.</strong> Напишу в Telegram и договоримся о времени разбора.</p></div>';
+  } else {
+    form.querySelector('.note').textContent = 'Не отправилось. Напишите, пожалуйста, на t.me/ArturCopilot_bot.';
+  }
+});
+
+calc();
+</script>
+<script src="https://spru.site/badge.js" data-site="73ebd9" defer></script>
+</body>
+</html>
