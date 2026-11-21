@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="3924572dfd6f1636">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор утечки записи: сколько салон теряет в месяц</title>
+<meta name="description" content="Бесплатный калькулятор: посчитайте, сколько денег салон красоты теряет на отменах, неявках и незакрытых слотах за месяц и за год. Без регистрации.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;600;700&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113852395','ym');
+    ym(113852395,'init',{ssr:true,clickmap:true,params:{__ym:{isFromApi:'yesIsFromApi'}},referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113852395" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script>
+/* Переход с Pinterest: пины ведут на сайт без utm-меток, поэтому цель по URL
+   не срабатывала. Ловим реферер и зовём отдельную цель. */
+(function(){
+  var ref = document.referrer || '';
+  if (!/pinterest/i.test(ref)) return;
+  if (!window.ym) { setTimeout(function(){ if (window.ym) window.ym(113852395,'reachGoal','pinterest-referral'); }, 1200); return; }
+  window.ym(113852395,'reachGoal','pinterest-referral');
+})();
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Салон без пустых столов",
+  "url": "https://jarvis-noosphere-alpha.github.io/",
+  "description": "Бесплатный калькулятор: посчитайте, сколько денег салон красоты теряет на отменах, неявках и незакрытых слотах за месяц и за год. Без регистрации.",
+  "inLanguage": "ru-RU",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Артур Сторк"
+  }
+}
+</script>
+<link rel="canonical" href="https://jarvis-noosphere-alpha.github.io/kalkulyator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">Салон без пустых столов</span>
+      <span class="brand-sub">блог</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-hide" href="/articles/">Статьи</a>
+      <a class="nav-hide" href="/wb/">Карточки WB</a>
+      <a class="nav-hide" href="/checklist/">Чек-лист</a>
+      <a class="nav-hide" href="/zarplata/">Зарплата мастера</a>
+      <a class="nav-hide" href="/okupaemost/">Окупаемость</a>
+      <a class="nav-cta" href="/kalkulyator/">Посчитать утечку</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="tool-head">
+  <div class="wrap">
+    <p class="kicker">Бесплатный калькулятор</p>
+    <h1>Сколько салон теряет на отменах и неявках</h1>
+    <p class="lede">Введите свои цифры за месяц — покажем утечку в рублях, потерянные записи и сколько часов администратора на это уходит. Без регистрации, ответ сразу на экране.</p>
+  </div>
+</section>
+
+<section class="tool-body">
+  <div class="wrap tool-grid">
+    <div class="tool-form" id="calc">
+      <h2 class="tool-h">Ваши цифры</h2>
+
+      <div class="field">
+        <label for="zapis">Записей в месяц</label>
+        <input id="zapis" type="number" inputmode="numeric" min="0" max="2000" step="1" value="93">
+        <p class="hint">Все записи, которые салон принимает: из мессенджеров, телефона, с сайта, из Instagram.</p>
+      </div>
+
+      <div class="field">
+        <label for="chek">Средний чек, ₽</label>
+        <input id="chek" type="number" inputmode="numeric" min="0" max="100000" step="50" value="2300">
+        <p class="hint">Сколько в среднем приносит одна запись.</p>
+      </div>
+
+      <div class="field">
+        <label for="otmena">Отмен и переносов, %</label>
+        <input id="otmena" type="number" inputmode="numeric" min="0" max="100" step="1" value="8">
+        <p class="hint">Отменил или попросил перенести. По данным Zenoti (США и Канада, 2024) у салонов — 8%. Российских открытых данных по отменам нет: впишите свои цифры из журнала.</p>
+      </div>
+
+      <div class="field">
+        <label for="nevizka">Не пришли без предупреждения, %</label>
+        <input id="nevizka" type="number" inputmode="numeric" min="0" max="100" step="1" value="3">
+        <p class="hint">Записался и просто не пришёл. По данным Zenoti (США и Канада, 2024) у салонов — 3%. Это отдельная метрика от отмен, а не часть их: складывать их нельзя.</p>
+      </div>
+
+      <div class="field">
+        <label for="chas">Минут на одну запись у администратора</label>
+        <input id="chas" type="number" inputmode="numeric" min="0" max="240" step="1" value="8">
+        <p class="hint">Переписка, подтверждение, напоминание, перенос. Считайте всё, что делает человек ради записи. Обычно 5–15 минут.</p>
+      </div>
+
+      <div class="field">
+        <label for="stavka">Стоимость часа администратора, ₽</label>
+        <input id="stavka" type="number" inputmode="numeric" min="0" max="10000" step="10" value="400">
+        <p class="hint">Оклад с налогами, делённый на рабочие часы в месяц.</p>
+      </div>
+
+      <button class="btn btn-primary tool-submit" type="button" id="calc-btn">Посчитать утечку</button>
+      <p class="hint" id="calc-note">Можно изменить цифры и пересчитать — ничего никуда не отправляется.</p>
+    </div>
+
+    <div class="tool-result" id="result" aria-live="polite">
+      <div class="result-empty">
+        <p class="kicker">Результат</p>
+        <h2 class="tool-h">Здесь появится расчёт</h2>
+        <p class="hint">Нажмите «Посчитать утечку» — или просто подставьте свои цифры в поля слева.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="lead-block" hidden>
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <p class="kicker">Чек-лист · PDF, 4 страницы</p>
+        <h2>Разберите 8 утечек, из-за которых утекают деньги</h2>
+        <p>К каждой — вопрос, ответ на который стоит записать сегодня. В конце PDF — таблица расчёта, чтобы посчитать свою утечку по вашим цифрам.</p>
+        <ul class="magnet-list">
+          <li>Запись без подтверждения</li>
+          <li>Депозит «на словах»</li>
+          <li>Отмена в 22:40 и реакция через 10 часов</li>
+          <li>Непонятно, от кого пришёл клиент</li>
+        </ul>
+        <p style="margin-top:18px"><a href="/checklist-utechek-zapisi.pdf">Скачать PDF напрямую</a> — если не хочется оставлять контакты.</p>
+        <p style="margin-top:18px"><a class="btn btn-ghost" href="/checklist/?from=calc">Открыть полный чек-лист 8 утечек</a></p>
+      </div>
+      <form class="lead" id="lead" action="/f/lead-calc" method="POST"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" data-spru-hp>
+        <label for="name">Имя</label>
+        <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+        <label for="contact">Телефон или Telegram</label>
+        <input id="contact" name="contact" type="text" placeholder="+7 ... или @nick" required>
+        <label for="salon">Салон (необязательно)</label>
+        <input id="salon" name="salon" type="text" placeholder="Название или город">
+        <button class="btn btn-primary" type="submit">Прислать чек-лист</button>
+        <p class="note">Пришлю чек-лист и один раз спрошу, как у вас с отменами. Больше никаких рассылок.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="kicker">Как считать</p>
+      <h2>Что заложено в расчёт</h2>
+    </div>
+    <p>Считаем не «процент отмен», а деньги. Отмена и неявка — это не пустой слот, а слот, который не закрыли: клиент ушёл, время мастера не продано, выручки нет.</p>
+    <ul>
+      <li><strong>Отмены и переносы</strong> — отдельная метрика. Если клиент вернулся в другой день, утечки нет; в калькуляторе считаем худший сценарий, когда слот остался пустым.</li>
+      <li><strong>Неявки</strong> — вторая, отдельная метрика: клиент не предупредил, сгорело время мастера и материалы. Неявка не входит в отмены, поэтому их можно складывать, но нельзя брать одну цифру «отмены + неявки» из вендорских обзоров.</li>
+      <li><strong>Часы администратора</strong> — стоимость ручной работы: каждая запись съедает несколько минут переписки, подтверждений и напоминаний. Это не «бесплатный» труд.</li>
+    </ul>
+    <p>Единственный открытый отраслевой бенчмарк — отчёт Zenoti (США и Канада, данные 2024): у салонов 8% отмен и 3% неявок, у ногтевых 16% и 1%, у барбершопов 2% и 4%. Российских панельных данных в открытом доступе нет, поэтому считайте по своему журналу. В оценках вендоров диапазоны встречаются шире (no-show 10–30%) — но это маркетинговые обзоры без выборки, а не измеренные данные.</p>
+    <p><a href="/articles/kak-salon-teryaet-dengi-na-pustyh-stolyah/">Как салон теряет деньги на пустых столах →</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Артур Сторк · сайты и AI-ассистенты для салонов</span>
+    <span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/">На главную</a></span>
+  </div>
+</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const num = (id, def) => { const v = parseFloat($('#' + id).value); return isFinite(v) ? Math.max(0, v) : def; };
+const money = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n));
+const plural = (n, a, b, c) => {
+  const m = n % 100, m1 = m % 10;
+  if (m > 10 && m < 20) return c;
+  if (m1 === 1) return a;
+  if (m1 >= 2 && m1 <= 4) return b;
+  return c;
+};
+
+function calc() {
+  const zapis = num('zapis', 0);
+  const chek = num('chek', 0);
+  const otmena = num('otmena', 0) / 100;
+  const nevizka = num('nevizka', 0) / 100;
+  const chas = num('chas', 0);
+  const stavka = num('stavka', 0);
+
+  const poterianoZapisey = zapis * (otmena + nevizka);
+  const poterianoZapiseyInt = Math.round(poterianoZapisey);
+  const poteryRublei = poterianoZapisey * chek;
+  const god = poteryRublei * 12;
+  const vChasy = poterianoZapisey * chas / 60;
+  const vChasyInt = Math.round(vChasy);
+  const vRubleiChasy = vChasy * stavka;
+
+  const total = poteryRublei + vRubleiChasy;
+  const totalGod = total * 12;
+  const vChasovMes = zapis * chas / 60;
+
+  $('#result').innerHTML = `
+    <p class="kicker">Ваша утечка</p>
+    <div class="result-big">
+      <span class="result-num">${money(total)} ₽</span>
+      <span class="result-per">в месяц</span>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${money(totalGod)} ₽</span>
+        <span class="rc-lab">в год при тех же цифрах</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${poterianoZapiseyInt}</span>
+        <span class="rc-lab">${plural(poterianoZapiseyInt, 'запись', 'записи', 'записей')} не состоялись</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(poteryRublei)} ₽</span>
+        <span class="rc-lab">потеряно на пустых слотах</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${vChasyInt} ч</span>
+        <span class="rc-lab">часов ручной работы ушло на пустые слоты${vRubleiChasy > 0 ? ` (${money(vRubleiChasy)} ₽)` : ''}</span>
+      </div>
+    </div>
+    ${vChasovMes > 0 ? `<p class="result-note">Из ${Math.round(vChasovMes)} ч ручной работы по записям в месяц уходит <strong>${Math.round(vChasy / vChasovMes * 100)}%</strong> — на пустые слоты и клиентов, которых не было.</p>` : ''}
+    <p class="result-cta">Это ${money(total)} ₽ в месяц. Один администратор на полставки стоит 20–30 тыс ₽ — то есть утечка уже сопоставима с половиной его ставки. <a href="#lead-block">Разберите, откуда она идёт →</a></p>
+    <p class="result-note">Отдельная боль салона — расчёт зарплаты мастера: процент от выручки, чаевые, штрафы, ручной пересчёт в таблице. <a href="/zarplata/?from=kalkulyator">Посчитать зарплату мастера →</a></p>
+  `;
+  $('#lead-block').hidden = false;
+}
+
+$('#calc-btn').addEventListener('click', () => {
+  calc();
+  if (window.ym) { window.ym(113852395, 'reachGoal', 'calc-utechka'); }
+});
+$('#calc').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); calc(); } });
+['zapis', 'chek', 'otmena', 'nevizka', 'chas', 'stavka'].forEach((id) => {
+  $('#' + id).addEventListener('input', () => { if ($('#result .result-big')) calc(); });
+});
+
+document.getElementById('lead').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const res = await fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)) });
+  if (res.ok) {
+    if (window.ym) { window.ym(113852395, 'reachGoal', 'lead-calc-submitted'); }
+    form.outerHTML = '<div class="form-ok"><p><strong>Готово.</strong> Чек-лист высылаю в Telegram — если не придёт в течение часа, напишите на t.me/ArturCopilot_bot.</p></div>';
+  } else {
+    form.querySelector('.note').textContent = 'Не отправилось. Напишите, пожалуйста, на t.me/ArturCopilot_bot.';
+  }
+});
+
+calc();
+</script>
+<script src="https://spru.site/badge.js" data-site="73ebd9" defer></script>
+</body>
+</html>
