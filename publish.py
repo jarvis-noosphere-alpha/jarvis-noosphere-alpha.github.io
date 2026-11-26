@@ -44,7 +44,7 @@ def mirror_url(path):
 
 
 # Обновление зеркала: 2026-11-04 — добавлена schema.org-разметка на 22 страницах.
-YM_VERIFICATION = "3924572dfd6f1636"
+YM_VERIFICATION = "1e0950f57f1dd2fd"
 
 
 def rewrite_html(text, path):
