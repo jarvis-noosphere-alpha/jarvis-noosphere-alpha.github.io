@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="yandex-verification" content="1e0950f57f1dd2fd">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор rebooking: сколько клиентов салон не вернул</title>
+<meta name="description" content="Калькулятор rebooking rate для салона красоты: считает долю клиентов, записавшихся на следующий визит, сравнивает с отраслевыми ориентирами (PBA 2025) и переводит разницу в рубли.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;600;700&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]=m[i]||{};})();
+</script>
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||(m[i].a={}).push(function(){arguments.length>1&&(m[i].q=m[i].q||[]).push(arguments)});m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}k=e.createElement(t),a=m[i].a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=113852395','ym');
+    ym(113852395,'init',{ssr:true,clickmap:true,params:{__ym:{isFromApi:'yesIsFromApi'}},referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113852395" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+<script>
+(function(){
+  var ref = document.referrer || '';
+  if (!/pinterest/i.test(ref)) return;
+  if (!window.ym) { setTimeout(function(){ if (window.ym) window.ym(113852395,'reachGoal','pinterest-referral'); }, 1200); return; }
+  window.ym(113852395,'reachGoal','pinterest-referral');
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Калькулятор rebooking rate для салона красоты",
+  "url": "https://jarvis-noosphere-alpha.github.io/rebooking/",
+  "applicationCategory": "BusinessApplication",
+  "description": "Считает rebooking rate салона красоты, сравнивает с отраслевыми ориентирами (PBA 2025) и переводит разницу в рубли.",
+  "inLanguage": "ru-RU",
+  "publisher": { "@type": "Organization", "name": "Артур Сторк" }
+}
+</script>
+<link rel="canonical" href="https://jarvis-noosphere-alpha.github.io/rebooking/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержанию</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">Салон без пустых столов</span>
+      <span class="brand-sub">блог</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-hide" href="/articles/">Статьи</a>
+      <a class="nav-hide" href="/wb/">Карточки WB</a>
+      <a class="nav-hide" href="/checklist/">Чек-лист</a>
+      <a class="nav-hide" href="/kalkulyator/">Калькулятор утечки</a>
+      <a class="nav-hide" href="/zarplata/">Зарплата мастера</a>
+      <a class="nav-hide" href="/okupaemost/">Окупаемость</a>
+      <a class="nav-cta" href="/kalkulyator/">Посчитать утечку</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="tool-head">
+  <div class="wrap">
+    <p class="kicker">Бесплатный калькулятор</p>
+    <h1>Калькулятор rebooking: сколько клиентов салон не вернул</h1>
+    <p class="lede">Введите свои цифры за месяц — покажем rebooking rate, сравним с отраслевыми ориентирами (PBA 2025) и посчитаем, сколько клиентов ушло после первого визита и сколько это стоит. Без регистрации, ответ сразу на экране.</p>
+  </div>
+</section>
+
+<section class="tool-body">
+  <div class="wrap tool-grid">
+    <div class="tool-form" id="calc">
+      <h2 class="tool-h">Ваши цифры</h2>
+
+      <div class="field">
+        <label for="visitov">Визитов в месяц</label>
+        <input id="visitov" type="number" inputmode="numeric" min="0" max="5000" step="1" value="93">
+        <p class="hint">Сколько клиентов физически приходило в салон за месяц, включая повторные визиты.</p>
+      </div>
+
+      <div class="field">
+        <label for="rebook">Записались сразу на следующий визит, %</label>
+        <input id="rebook" type="number" inputmode="numeric" min="0" max="100" step="1" value="25">
+        <p class="hint">Считается как «записавшиеся на следующий визит ÷ все визиты». Ориентиры: 30–40% — средний салон, 50%+ — отличный, 65%+ — элитный (PBA 2025).</p>
+      </div>
+
+      <div class="field">
+        <label for="chek">Средний чек, ₽</label>
+        <input id="chek" type="number" inputmode="numeric" min="0" max="100000" step="50" value="2300">
+        <p class="hint">Сколько в среднем приносит один визит.</p>
+      </div>
+
+      <div class="field">
+        <label for="povtor">Визитов у клиента в год</label>
+        <input id="povtor" type="number" inputmode="numeric" min="1" max="60" step="1" value="4">
+        <p class="hint">Сколько раз в год в среднем бывает постоянный клиент. Влияет на оценку недополученной выручки от ушедших.</p>
+      </div>
+
+      <button class="btn btn-primary tool-submit" type="button" id="calc-btn">Посчитать rebooking</button>
+      <p class="hint" id="calc-note">Можно изменить цифры и пересчитать — ничего никуда не отправляется.</p>
+    </div>
+
+    <div class="tool-result" id="result" aria-live="polite">
+      <div class="result-empty">
+        <p class="kicker">Результат</p>
+        <h2 class="tool-h">Здесь появится расчёт</h2>
+        <p class="hint">Нажмите «Посчитать rebooking» — или просто подставьте свои цифры в поля слева.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight" id="lead-block" hidden>
+  <div class="wrap">
+    <div class="magnet">
+      <div>
+        <p class="kicker">Чек-лист · PDF, 4 страницы</p>
+        <h2>Разберите 8 утечек, из-за которых утекают деньги</h2>
+        <p>К каждой — вопрос, ответ на который стоит записать сегодня. В конце PDF — таблица расчёта, чтобы посчитать свою утечку по вашим цифрам.</p>
+        <ul class="magnet-list">
+          <li>Запись без подтверждения</li>
+          <li>Депозит «на словах»</li>
+          <li>Отмена в 22:40 и реакция через 10 часов</li>
+          <li>Непонятно, от кого пришёл клиент</li>
+        </ul>
+        <p style="margin-top:18px"><a href="/checklist-utechek-zapisi.pdf">Скачать PDF напрямую</a> — если не хочется оставлять контакты.</p>
+        <p style="margin-top:18px"><a class="btn btn-ghost" href="/checklist/?from=rebooking">Открыть полный чек-лист 8 утечек</a></p>
+      </div>
+      <form class="lead" id="lead" action="/f/lead-rebooking" method="POST"><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0" data-spru-hp>
+        <label for="name">Имя</label>
+        <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+        <label for="contact">Телефон или Telegram</label>
+        <input id="contact" name="contact" type="text" placeholder="+7 ... или @nick" required>
+        <label for="salon">Салон (необязательно)</label>
+        <input id="salon" name="salon" type="text" placeholder="Название или город">
+        <button class="btn btn-primary" type="submit">Прислать чек-лист</button>
+        <p class="note">Пришлю чек-лист и один раз спрошу, как у вас с возвратом клиентов. Больше никаких рассылок.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <div class="section-head">
+      <p class="kicker">Как считать</p>
+      <h2>Что заложено в расчёт</h2>
+    </div>
+    <ul>
+      <li><strong>Rebooking rate</strong> — доля визитов, после которых клиент сразу записался на следующий. Считайте по всем визитам за месяц: клиенты, записавшиеся на следующий ÷ все визиты.</li>
+      <li><strong>«Ушли после первого визита»</strong> — визиты, которые не закрылись повторной записью. Это самая дешёвая потеря: клиент ещё не привык и вернуть его проще всего.</li>
+      <li><strong>Недополученная выручка</strong> считается как «ушедшие клиенты × средний чек × (визитов в год − 1)»: столько визитов клиент мог бы принести, если бы остался.</li>
+      <li><strong>Потенциал роста</strong> — сколько клиентов в месяц вернётся, если поднять rebooking rate до 30% (средний салон по PBA 2025). Каждые +10 п.п. rebooking rate в данных PBA 2025 коррелируют с +12–18% годовой выручки — это вендорская модель на отраслевых данных, а не гарантия для вашего салона.</li>
+    </ul>
+    <p>Российских панельных данных по возврату клиентов в открытом доступе нет. Ориентиры взяты из зарубежных отраслевых обзоров: PBA 2024 и 2025 (США) и Zenoti Benchmark Report 2025 (США и Канада, данные 2024) — см. разбор в статье <a href="/articles/kak-vernut-klienta-v-salon-krasoty/">«Как вернуть клиента в салон красоты»</a>.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <span>Артур Сторк · сайты и AI-ассистенты для салонов</span>
+    <span><a href="/privacy/">Политика конфиденциальности</a> · <a href="/">На главную</a></span>
+  </div>
+</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const num = (id, def) => { const v = parseFloat($('#' + id).value); return isFinite(v) ? Math.max(0, v) : def; };
+const money = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n));
+const plural = (n, a, b, c) => {
+  const m = n % 100, m1 = m % 10;
+  if (m > 10 && m < 20) return c;
+  if (m1 === 1) return a;
+  if (m1 >= 2 && m1 <= 4) return b;
+  return c;
+};
+
+function calc() {
+  const visitov = num('visitov', 0);
+  const rate = Math.min(100, num('rebook', 0));
+  const chek = num('chek', 0);
+  const povtor = Math.max(1, num('povtor', 1));
+
+  const uyli = visitov * (1 - rate / 100);
+  const uyliInt = Math.round(uyli);
+  const nedopoluchen = uyli * chek * (povtor - 1);
+  const god = nedopoluchen * 12;
+
+  const doSrednego = Math.max(0, visitov * (0.30 - rate / 100));
+  const doSrednegoInt = Math.round(doSrednego);
+  const godovyye = visitov * chek * 12;
+  const prirost = godovyye * (doSrednego / 10) * 0.15;
+  const prirostInt = Math.round(prirost);
+
+  let level, levelNote;
+  if (rate >= 65) { level = 'Элитный салон'; levelNote = '65%+ — верхняя шкала PBA 2025. В салоне с таким возвратом решают уже другие задачи: цена, загрузка, штат.'; }
+  else if (rate >= 50) { level = 'Отличный салон'; levelNote = '50%+ — «отличный» уровень по шкале PBA 2025. Здесь смотреть надо на мастеров и услуги, которые выпадают из среднего.'; }
+  else if (rate >= 30) { level = 'Средний салон'; levelNote = '30–40% — средний салон по PBA 2025. Вы в рынке, но запас есть: каждый +10 п.п. — это +12–18% годовой выручки в отраслевой модели.'; }
+  else { level = 'Ниже среднего'; levelNote = 'Ниже 30% — ниже среднего салона по PBA 2025. Обычно это не «плохой сервис», а отсутствие записи на следующий визит в момент ухода клиента.'; }
+
+  $('#result').innerHTML = `
+    <p class="kicker">Ваш rebooking rate</p>
+    <div class="result-big">
+      <span class="result-num">${rate}%</span>
+      <span class="result-per">${level}</span>
+    </div>
+    <div class="result-grid">
+      <div class="result-cell">
+        <span class="rc-num">${uyliInt}</span>
+        <span class="rc-lab">${plural(uyliInt, 'визит', 'визита', 'визитов')} в месяц без повторной записи</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(nedopoluchen)} ₽</span>
+        <span class="rc-lab">недополучено в месяц</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${money(god)} ₽</span>
+        <span class="rc-lab">в год при тех же цифрах</span>
+      </div>
+      <div class="result-cell">
+        <span class="rc-num">${doSrednegoInt}</span>
+        <span class="rc-lab">${plural(doSrednegoInt, 'клиент', 'клиента', 'клиентов')} вернётся, если поднять rebooking до 30%</span>
+      </div>
+    </div>
+    <p class="result-note">${levelNote}</p>
+    ${prirostInt > 0 ? `<p class="result-note">По отраслевой модели PBA 2025 каждый +10 п.п. rebooking rate даёт +12–18% годовой выручки. При вашей годовой выручке ${money(godovyye)} ₽ это примерно <strong>${money(prirostInt)} ₽</strong> в год при росте rebooking rate на ${Math.round(doSrednego)} п.п. Это корреляция на отраслевых данных, а не обещание.</p>` : ''}
+    <p class="result-cta">Вернуть клиента проще всего в момент ухода: записать следующий визит сразу, а в день отмены — написать клиенту в течение 24 часов (40–50% отмен так восстанавливаются против 10–15% без реакции, PBA 2025). <a href="/articles/kak-vernut-klienta-v-salon-krasoty/">Как это сделать в салоне →</a></p>
+    <p class="result-note">Другая сторона — пустые слоты и отмены: их считает <a href="/kalkulyator/">калькулятор утечки записи</a>.</p>
+  `;
+  $('#lead-block').hidden = false;
+}
+
+$('#calc-btn').addEventListener('click', () => {
+  calc();
+  if (window.ym) { window.ym(113852395, 'reachGoal', 'calc-rebooking'); }
+});
+$('#calc').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); calc(); } });
+['visitov', 'rebook', 'chek', 'povtor'].forEach((id) => {
+  $('#' + id).addEventListener('input', () => { if ($('#result .result-big')) calc(); });
+});
+
+document.getElementById('lead').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const res = await fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)) });
+  if (res.ok) {
+    form.innerHTML = '<div class="form-ok"><p><strong>Готово.</strong> Чек-лист высылаю в Telegram — если не придёт в течение часа, напишите на t.me/ArturCopilot_bot.</p></div>';
+    if (window.ym) { window.ym(113852395, 'reachGoal', 'lead-rebooking-submitted'); }
+  } else {
+    const err = document.createElement('p');
+    err.className = 'form-ok';
+    err.textContent = 'Не отправилось. Попробуйте ещё раз или напишите в Telegram.';
+    form.appendChild(err);
+  }
+});
+</script>
+<script src="https://spru.site/badge.js" data-site="73ebd9" defer></script>
+</body>
+</html>
