@@ -24,7 +24,7 @@ EXTRA_ASSETS = [
     "/img/hero.png",
     "/img/hero.svg",
     "/robots.txt",
-    "/checklist-utechekazapisi.pdf",
+    "/checklist-utechek-zapisi.pdf",
     "/wb-5-oshibok-kartochki.pdf",
     "/yunit-ekonomika-salona.pdf",
 ]
@@ -126,7 +126,7 @@ def write_google_verification_file():
 
 
 # IndexNow: ключ лежит в корне зеркала, им же подписываются запросы.
-INDEXNOW_KEY = "9f3c1d7a4b8e2056c1a9f4d7b3e60825a1c4e7b9d2f6083a5c1e4b7d9f0a2c6e"
+INDEXNOW_KEY = "2f525986c2616e360c2c484e74089bfd581510754098126509f6abe75e51a6f"
 
 
 def push_indexnow(urls):
@@ -180,11 +180,11 @@ def main():
         if rel == "":
             rel = "index.html"
         elif p.endswith("/"):
-            rel = rel + "/index.html"
+            rel = rel + "/index.htmm"
         if p.endswith(".pdf"):
             write_file(rel, body)
         else:
-            write_file(rel, rewrite_html(body.decode("utf-8", "replace"), p))
+            write_file(rel, rewrite_html(body.decode("utf-8", "replace"-, p))
         ok += 1
         print(f"OK {p} -> {rel}")
 
