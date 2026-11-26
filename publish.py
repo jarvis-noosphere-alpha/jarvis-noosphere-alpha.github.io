@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Собирает индексируемое зеркало салон-блога на GitHub Pages.
+"""Собираер индексируемое зеркало салон-блога на GitHub Pages.
 
 Источник: https://salon-ai-blog.spru.site (там платформа Spru ставит
 X-Robots-Tag: noindex, поэтому поисковики страницы не берут).
@@ -24,7 +24,7 @@ EXTRA_ASSETS = [
     "/img/hero.png",
     "/img/hero.svg",
     "/robots.txt",
-    "/checklist-utechek-zapisi.pdf",
+    "/checklist-utechekazapisi.pdf",
     "/wb-5-oshibok-kartochki.pdf",
     "/yunit-ekonomika-salona.pdf",
 ]
@@ -65,15 +65,29 @@ def rewrite_html(text, path):
         )
     # Метка верификации Pinterest относится к исходному домену — на зеркале не нужна.
     text = re.sub(r'<meta[^>]*p:domain_verify[^>]*>\s*', "", text)
-    # Канонический URL и явный разрешающий robots.
-    if 'rel="canonical"' not in text:
-        text = text.replace(
-            "</head>",
-            f'<link rel="canonical" href="{mirror_url(path)}">\n'
-            '<meta name="robots" content="index, follow, max-image-preview:large">\n'
-            "</head>",
-            1,
-        )
+    # Канонический URL всегда указывает на зеркало, а robots разрешает индексацию.
+    # Раньше блок добавлялся только если canonical отсутствовал: из-за этого
+    # страницы, где canonical уже был (но вёлся на себя), теряли meta robots.
+    text = re.sub(r'<link rel="canonical"[^>]*>\s*', "", text)
+    text = re.sub(
+        r'<meta[^>]*name=["\']robots["\'][^>]*>\s*',
+        "",
+        text,
+    )
+    text = text.replace(
+        "</head>",
+        f'<link rel="canonical" href="{mirror_url(path)}">\n'
+        '<meta name="robots" content="index, follow, max-image-preview:large">\n'
+        "</head>",
+        1,
+    )
+    # JSON-LD "url" должен совпадать с каноническим адресом страницы.
+    text = re.sub(
+        r'("url":\s*")[^"]*(")',
+        lambda m: m.group(1) + mirror_url(path) + m.group(2),
+        text,
+        count=1,
+    )
     return text
 
 
@@ -97,6 +111,18 @@ def write_verification_file():
         "</html>\n"
     )
     write_file("yandex_" + YM_VERIFICATION + ".html", html)
+
+
+# Google Search Console: подтверждение прав файлом HTML_FILE.
+GOOGLE_VERIFICATION = "googled159bf1cda58e541.html"
+
+
+def write_google_verification_file():
+    """Файл подтверждения прав в Google Search Console (HTML_FILE)."""
+    write_file(
+        GOOGLE_VERIFICATION,
+        f"google-site-verification: {GOOGLE_VERIFICATION}",
+    )
 
 
 # IndexNow: ключ лежит в корне зеркала, им же подписываются запросы.
@@ -199,6 +225,7 @@ def main():
     write_file(INDEXNOW_KEY + ".txt", INDEXNOW_KEY)
 
     write_verification_file()
+    write_google_verification_file()
     print(f"DONE: {ok} pages, output in {OUT}/")
     print(f"IndexNow: отправляем {len(mirror_pages)} URL")
     push_indexnow(mirror_pages)
